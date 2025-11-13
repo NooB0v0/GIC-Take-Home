@@ -8,11 +8,11 @@ It is built with **production-ready patterns**, with a strong focus on **scalabi
 
 ## 📚 Table of Contents
 
-1. [Overview](#-overview)
-2. [Technical Stack](#-technical-stack)
+1. [Overview](#-overview-)
+2. [Technical Stack](#-Backend-API)
 3. [Quick Start (Docker Deployment)](#-quick-start-docker-deployment)
-4. [Database Schema & Constraints](#-database-schema--constraints)
-5. [Core API Endpoints](#-core-api-endpoints)
+4. [Database Schema & Constraints](#--Database-Schema-&-Constraints)
+5. [Core API Endpoints](#-Core-API-Endpoints--CRUD-)
 
 ---
 
