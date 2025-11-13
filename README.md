@@ -2,8 +2,6 @@
 # ☕ Full Stack Café Employee Management Application
 
 
-
-
 ## 🚀 Quick Start: Instructions to Compile and Run
 
 This application is fully containerized using Docker Compose. The following steps will build the necessary images, initialize the PostgreSQL database, and launch both the Python API (Backend) and React Web UI (Frontend).
@@ -70,3 +68,14 @@ To fully reset the database and force a new schema initialization on the next ru
 docker volume rm [YOUR_PROJECT_NAME]_postgres_data
 ```
 (Replace [YOUR_PROJECT_NAME] with your repository's root folder name as used by Docker.)
+
+
+
+
+## 5. ⚠️ Troubleshooting (Client-Side Access)
+
+If the application fails to load when accessed from the public URL, showing a  `net::ERR_BLOCKED_BY_CLIENT `error, this is a client-side security conflict and not a bug in the code or server configuration.
+
+Issue: The browser's Ad-Blocker or Privacy Extensions (e.g., uBlock Origin, Privacy Badger) are blocking the necessary cross-port request from the frontend (`:3000`) to the backend API (`:5000`).
+
+Resolution: Please temporarily disable all privacy/ad-blocking extensions for the application URL, or use a clean Incognito/Private browser window.
