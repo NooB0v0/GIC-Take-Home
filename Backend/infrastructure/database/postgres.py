@@ -1,7 +1,9 @@
 import os
+import time
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.exc import OperationalError
 
 from infrastructure.database.sql_models import Base
 
