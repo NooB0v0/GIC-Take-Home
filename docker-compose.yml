@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: cafe_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./Database/main.sql:/docker-entrypoint-initdb.d/main.sql
+
+  api:
+    build:
+      context: ./backend 
+      dockerfile: Dockerfile
+    container_name: cafe-api
+    restart: always
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres_user:postgres_password@db:5432/cafe_db
+      VITE_API_BASE_URL: http://api:5000 
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/usr/src/app 
+      - ./backend/public/logos:/usr/src/app/public/logos
+  web:
+    build:
+      context: ./frontend 
+      dockerfile: Dockerfile.dev 
+    container_name: cafe-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api 
+    environment:
+      VITE_API_BASE_URL: http://localhost:5000 
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules 
+
+volumes:
+  postgres_data:

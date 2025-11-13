@@ -1,0 +1,12 @@
+# Python Environment
+.venv
+__pycache__
+
+# IDE/Development Files
+.vscode
+.mypy_cache
+.pytest_cache
+
+# Database/Log files (if applicable)
+*.sqlite
+*.log

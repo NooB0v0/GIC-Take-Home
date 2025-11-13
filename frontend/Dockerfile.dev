@@ -1,0 +1,19 @@
+# Use a Node base image for building the React app
+FROM node:20-alpine
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package files and install Node dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Expose the port (Vite's default)
+EXPOSE 3000
+
+# Build and run the Vite development server
+# --host 0.0.0.0 is CRITICAL to allow Docker access
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

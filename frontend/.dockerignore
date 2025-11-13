@@ -1,0 +1,11 @@
+# 1. Dependency Directories
+node_modules
+
+# 2. Build and Distribution Artifacts (Should be built INSIDE the container)
+dist
+build
+.parcel-cache
+
+# 3. IDE/Development/Source Control Artifacts
+.git
+.vscode
